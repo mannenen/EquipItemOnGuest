@@ -30,13 +30,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\RF - Rational Romance\Assemblies\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Games\SteamLibrary\steamapps\common\RimWorld\Mods\RJW\packages\UnlimitedHugs.Rimworld.HugsLib.6.1.1\lib\net35\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Games\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -46,22 +49,25 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Games\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\EquipItemOnGuest.cs" />
     <Compile Include="Source\JobDriver_EquipItemOnGuest.cs" />
-    <Compile Include="Source\Thing_Patch.cs" />
+    <Compile Include="Source\Apparel_Patch.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Languages\English\Keyed\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="About\About.xml" />
     <Content Include="Defs\Jobs_Misc.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "C:\Users\Nathan\Source\Repos\EquipItemOnGuest" "C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\EquipItemOnGuest\" /i /f /s /e /y</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(SolutionDir)\$(ProjectName)" "C:\Games\SteamLibrary\steamapps\common\RimWorld\Mods\EquipItemOnGuest\" /i /f /s /e /y</PostBuildEvent>
   </PropertyGroup>
 </Project>
